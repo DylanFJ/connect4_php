@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+/*
+ * Author: Dylan <dylanfj700@gmail.com>
+ * (c) Copyright
+*/
+
+namespace Connect4;
+
+use Connect4\ThrowableHandler\ThrowableHandler;
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+if (PHP_VERSION_ID < 70400) {
+    try {
+        throw new \RuntimeException('Make sure you have php >= 7.4.0');
+    } catch (\RuntimeException $exception) {
+        die("\n\033[1;37;41m " . $exception->getMessage() . " \033[22;39;49m\n");
+    }
+}
+
+if (!is_file(__DIR__ . '/vendor/autoload.php')) {
+    try {
+        throw new \RuntimeException('The autoload file does not exist, please use composer install');
+    } catch (\RuntimeException $runtimeException) {
+        die($runtimeException->getMessage());
+    }
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+ThrowableHandler::init();
+App::start();

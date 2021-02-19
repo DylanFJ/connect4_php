@@ -1,0 +1,29 @@
+{
+    "name": "dylanfj/connect4",
+    "description": "A simple Connect4 php game !",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dylan",
+            "email": "dylanfj700@gmail.com"
+        }
+    ],
+    "require": {
+      "ext-json": "*",
+      "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Connect4\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
